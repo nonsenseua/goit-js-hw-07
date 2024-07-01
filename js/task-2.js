@@ -25,16 +25,15 @@ const images = [
   },
 ];
 
-const gallery = document.querySelector('.gallery');
+const gallery = document.querySelector(".gallery");
 
-const createElements = images =>
-  images
-    .map(
-      element =>
-        `<li><img src=${element.url} alt=${element.alt} width="360" height="300"></li>`
-    )
-    .join('');
 
-const elements = createElements(images);
+const createGalleryItems = images
+  .map((image) => {
+    return `<li class="gallery-item"><img class="gallery-item-image" src="${image.url}" alt="${image.alt}"></li>`;
+  })
+  .join("");
 
-gallery.insertAdjacentHTML('beforeend', elements);
+
+
+gallery.insertAdjacentHTML("afterbegin", createGalleryItems);
